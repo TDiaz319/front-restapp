@@ -6,7 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MainMenuService } from './services/main-menu.service';
+import { ProductosComponent } from './productos/productos.component';
+import { ProductosService } from './services/productos.service';
 
 const routes: Routes = [
   { path: "", redirectTo: "menu", pathMatch: "full" },
@@ -16,7 +17,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    ProductosComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,7 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [MainMenuService],
+  providers: [ProductosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,7 +8,7 @@ import { Producto } from '../entidades/producto';
 @Injectable({
   providedIn: 'root'
 })
-export class MainMenuService {
+export class ProductosService {
   private urlEndPoint: string = "http://localhost:2000/";
   private httpHeaders = new HttpHeaders({"Content-type": "application/json"});
 
