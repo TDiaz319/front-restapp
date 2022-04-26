@@ -24,17 +24,17 @@ button img{
 #reservas{
     background-color: rgb(5, 199, 128);
 }
-:hover #inventario{
+#inventario :hover {
     background-color: rgb(72, 211, 211);
     box-shadow:  6px 8px rgb(58, 57, 57);
     font-weight: bold;
 }
-:hover #pedidos{
+#pedidos :hover {
     background-color: rgb(106, 140, 190);
     box-shadow:  6px 8px rgb(58, 57, 57);
     font-weight: bold;
 }
-:hover #reservas{
+#reservas :hover {
     background-color: rgb(100, 212, 171);
     box-shadow:  6px 8px rgb(58, 57, 57);
     font-weight: bold;
