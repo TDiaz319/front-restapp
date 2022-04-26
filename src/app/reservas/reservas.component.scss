@@ -1,0 +1,72 @@
+#principal{
+    display: inline-flex;
+}
+h2{
+    font-size: 50px;
+    text-align: center;
+}
+p{
+    padding-left: 30px;
+    font-size: 25px;
+}
+form{
+    padding-left: 30px;
+}
+#reservar{
+    border: 1px black solid;
+    border-radius: 10px;
+    background-color: #2ecc71;
+    width: 400px;
+    height: 650px;
+    padding-top: 20px;
+    
+}
+input{
+    margin-bottom: 15px;
+    width: 80%;
+    margin-left: 20px;
+    height: 25px;
+    border-radius: 5px;
+}
+label{
+    font-size: 25px;
+    padding-left: 10px;
+    text-align: left;
+    display: block;
+    padding-bottom: 10px;
+    padding-top: 15px;
+}
+select{
+    margin-left: 20px;
+    width: 90px;
+    height: 20px;
+}
+textarea{
+    margin-left: 20px;
+    height: 150px;
+    width: 80%;
+}
+button{
+    margin-left: 33%;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-top: 15px;
+}
+#lista{
+    border: 1px black solid;
+    border-radius: 10px;
+    background-color: #2ecc71;
+    width: 400px;
+    height: 350px;
+    padding-top: 20px;
+    margin-left: 60px;
+    
+}
+#editar{
+    margin-top: 60px;
+    margin-left: 10px;
+}
+#eliminar{
+    margin-left: 310px;
+    margin-top: 10px;
+}

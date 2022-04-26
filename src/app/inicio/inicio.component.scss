@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@500&display=swap');
+h1{
+    font-size: 100px;
+    text-align: center;
+    font-family: 'Anek Telugu', sans-serif;
+    padding-top: 50px;
+}
+
+#login{
+    margin: 0 auto;
+    margin-top: 15%;
+    border: 1px solid rgb(139, 136, 136);
+    background-color: #7B68EE;
+    width: 250px;
+    height: 260px;
+    border-radius: 15px;
+    box-shadow: 10px 10px rgb(53, 52, 52);
+    text-align: center;
+    padding: 20px 50px;
+}
+label {
+    font-size: 25px;
+    margin: 10px;
+}
+input{
+    width: 220px;
+    height: 20px;
+    border-radius: 5px;
+    box-shadow: 8px 5px rgb(53, 52, 52);
+
+}
+#user{
+    margin-bottom: 10px;
+}
+button{
+    margin-top: 25px;
+    border-radius: 5px;
+    font-size: 20px;
+
+}
+.text-gradient {
+    color: transparent;
+    background-image: linear-gradient(to left, #FFD700, #7B68EE, #3498db, #2ecc71, #FFD700);    
+    background-clip: text;
+    animation: color 3s linear infinite;
+    background-size: 500%;    
+}
+
+@keyframes color {
+    from {
+        background-position: 0% 50%;
+    }
+
+    to {
+        background-position: 100% 50%;
+    }
+}
