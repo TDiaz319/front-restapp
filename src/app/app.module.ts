@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table'
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { NuevoProductoComponent } from './nuevo-producto/nuevo-producto.component';
+
 
 const routes: Routes = [
   { path: "", redirectTo: "menu", pathMatch: "full" },
@@ -21,7 +23,9 @@ const routes: Routes = [
   { path: "", redirectTo: "inicio", pathMatch: "full" },
   { path: "inicio", component: InicioComponent },
   { path: "", redirectTo: "reservas", pathMatch: "full" },
-  { path: "reservas", component: ReservasComponent }
+  { path: "reservas", component: ReservasComponent },
+  { path: "", redirectTo: "nuevoproducto", pathMatch: "full" },
+  { path: "nuevoproducto", component: NuevoProductoComponent }
 ];
 
 @NgModule({
@@ -30,7 +34,8 @@ const routes: Routes = [
     MainMenuComponent,
     ProductosComponent,
     InicioComponent,
-    ReservasComponent
+    ReservasComponent,
+    NuevoProductoComponent
   ],
   imports: [
     BrowserModule,
