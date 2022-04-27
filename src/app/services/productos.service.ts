@@ -10,7 +10,9 @@ import { Producto } from '../entidades/producto';
 })
 export class ProductosService {
   private urlEndPoint: string = "http://localhost:2000/";
-  private httpHeaders = new HttpHeaders({"Content-type": "application/json"});
+  private httpHeaders = new HttpHeaders({
+    "Content-type": "application/json",
+    "Accept": "application/json"});
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -18,13 +20,60 @@ export class ProductosService {
     // el HTTP.GET devuelve un observable
     return this.http.get(this.urlEndPoint + "productos").pipe(
       tap( (response: any) => {
-        (response as Producto[]).forEach( producto => {
-          console.log(producto.id);
-          console.log(producto.nombreProducto);
-          console.log(producto.cantidad);
-          console.log("___________________________");          
+        (response as Producto[]).forEach( producto => {  
         })
       }),
+      map ((response: any) => {
+        (response as Producto[]).map( producto => {
+          return producto;
+        });
+        return response;
+      })
+    );
+  }
+
+  borrarProducto(id: number): Observable<Producto> {
+    return this.http.delete<Producto>(`${this.urlEndPoint}productos/borrar/${id}`, {headers: this.httpHeaders}).pipe(
+      tap( (response: any) => {
+        (response as Producto[]).forEach( producto => {  
+        })
+      }),
+      map ((response: any) => {
+        (response as Producto[]).map( producto => {
+          return producto;
+        });
+        return response;
+      })
+    );
+  }
+
+  actualizarProducto(producto: Producto): Observable<Producto> {
+    return this.http.put<Producto>(`${this.urlEndPoint}productos/updateProducto/${producto.id}`, producto, {headers: this.httpHeaders}).pipe(
+      tap( (response: any) => {
+        (response as Producto[]).forEach( producto => {  
+        })
+      }),
+      map ((response: any) => {
+        (response as Producto[]).map( producto => {
+          return producto;
+        });
+        return response;
+      })
+    );
+  }
+
+  crearProducto(producto: Producto): Observable<Producto> {
+    return this.http.post<Producto>(`${this.urlEndPoint}productos/crearProducto}`, producto, {headers: this.httpHeaders}).pipe(
+      tap( (response: any) => {
+        (response as Producto[]).forEach( producto => {  
+        })
+      }),
+      map ((response: any) => {
+        (response as Producto[]).map( producto => {
+          return producto;
+        });
+        return response;
+      })
     );
   }
 }

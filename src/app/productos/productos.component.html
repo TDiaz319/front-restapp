@@ -1,12 +1,32 @@
-<table>
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Cantidad</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        // map o foreach de array de base de datos
-    </tbody>
-</table>
+<mat-table [dataSource]="productos">
+    
+    <ng-container matColumnDef="nombreProducto">
+      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let producto"> {{producto.nombreProducto}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="cantidad">
+        <mat-header-cell *matHeaderCellDef> Cantidad </mat-header-cell>
+        <mat-cell *matCellDef="let producto"> {{producto.cantidad}} </mat-cell>
+    </ng-container>  
+
+    <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef> Borrar </mat-header-cell>
+        <mat-cell *matCellDef="let producto"> 
+            <button mat-mini-fab color="warn" aria-label="Delete" (click)="deleteProduct(producto)">
+                <mat-icon>delete</mat-icon>                
+            </button> </mat-cell>        
+    </ng-container>      
+
+    <ng-container matColumnDef="edit">
+        <mat-header-cell *matHeaderCellDef> Editar </mat-header-cell>
+        <mat-cell *matCellDef="let producto"> 
+            <button mat-mini-fab color="primary" aria-label="Editar" (click)="updateProduct(producto)">
+                <mat-icon>edit_calendar</mat-icon>                
+            </button> </mat-cell>
+    </ng-container>
+  
+    <!-- Header and Row Declarations -->
+    <mat-header-row *matHeaderRowDef="['nombreProducto', 'cantidad', 'delete', 'edit']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['nombreProducto', 'cantidad', 'delete', 'edit']"></mat-row>
+  </mat-table>
