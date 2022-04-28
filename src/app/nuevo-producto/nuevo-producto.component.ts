@@ -19,7 +19,7 @@ export class NuevoProductoComponent implements OnInit {
   crearProducto(nombreProducto: string, cantidad: number): void {
     console.log("creando: " + nombreProducto + " " + cantidad);
 
-    this.producto.nombreProducto = nombreProducto;
+    this.producto.nombre = nombreProducto;
     this.producto.cantidad = cantidad;
 
     this.productosService.crearProducto(this.producto).subscribe(
