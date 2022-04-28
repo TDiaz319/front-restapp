@@ -11,9 +11,6 @@ import { ProductosService } from './services/productos.service';
 import { InicioComponent } from './inicio/inicio.component';
 import { ReservasComponent } from './reservas/reservas.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule } from '@angular/material/table'
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 
 const routes: Routes = [
   { path: "", redirectTo: "menu", pathMatch: "full" },
@@ -37,10 +34,7 @@ const routes: Routes = [
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    BrowserAnimationsModule,
-    MatTableModule,
-    MatButtonModule,
-    MatIconModule
+    BrowserAnimationsModule
   ],
   providers: [ProductosService],
   bootstrap: [AppComponent]
