@@ -1,5 +1,5 @@
 <div class="container col-6" style="margin-top: 10%; padding: 2%;">
-    <form name="producto" class="row align-items-center">
+    <form class="row align-items-center">
 
         <fieldset class="field_set">
             <legend>Crear/editar Producto</legend>
@@ -18,7 +18,7 @@
             </div>
     
             <div class="col-12">
-                <button type="button" (click)="crearProducto(producto.nombreProducto, producto.cantidad)" class="btn btn-success" id="enviar">Enviar</button>
+                <button type="button" (click)="crearProducto(#nombreProducto.value, #cantidad)" class="btn btn-success" id="enviar">Enviar</button>
             </div>
         </fieldset>        
 
