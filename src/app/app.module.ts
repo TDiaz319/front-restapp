@@ -12,6 +12,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { ReservasComponent } from './reservas/reservas.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NuevoProductoComponent } from './nuevo-producto/nuevo-producto.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 const routes: Routes = [
@@ -29,7 +30,8 @@ const routes: Routes = [
     ProductosComponent,
     InicioComponent,
     ReservasComponent,
-    NuevoProductoComponent
+    NuevoProductoComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
