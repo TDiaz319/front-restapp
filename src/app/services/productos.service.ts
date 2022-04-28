@@ -34,10 +34,6 @@ export class ProductosService {
 
   borrarProducto(id: number): Observable<Producto> {
     return this.http.delete<Producto>(`${this.urlEndPoint}productos/borrar/${id}`, {headers: this.httpHeaders}).pipe(
-      tap( (response: any) => {
-        (response as Producto[]).forEach( producto => {  
-        })
-      }),
       map ((response: any) => {
         (response as Producto[]).map( producto => {
           return producto;
@@ -49,10 +45,6 @@ export class ProductosService {
 
   actualizarProducto(producto: Producto): Observable<Producto> {
     return this.http.put<Producto>(`${this.urlEndPoint}productos/updateProducto/${producto.id}`, producto, {headers: this.httpHeaders}).pipe(
-      tap( (response: any) => {
-        (response as Producto[]).forEach( producto => {  
-        })
-      }),
       map ((response: any) => {
         (response as Producto[]).map( producto => {
           return producto;
@@ -64,10 +56,6 @@ export class ProductosService {
 
   crearProducto(producto: Producto): Observable<Producto> {
     return this.http.post<Producto>(`${this.urlEndPoint}productos/crearProducto}`, producto, {headers: this.httpHeaders}).pipe(
-      tap( (response: any) => {
-        (response as Producto[]).forEach( producto => {  
-        })
-      }),
       map ((response: any) => {
         (response as Producto[]).map( producto => {
           return producto;

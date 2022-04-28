@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductosService } from '../services/productos.service';
 import { Producto } from '../entidades/producto';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-productos',
@@ -11,7 +13,7 @@ export class ProductosComponent implements OnInit {
 
   productos: Producto[] = [];
  
-    constructor(private productosService: ProductosService) { }
+    constructor(private productosService: ProductosService, private router: Router) { }
 
   ngOnInit(): void { 
     this.productosService.getProducto().subscribe(
@@ -29,8 +31,14 @@ export class ProductosComponent implements OnInit {
       });
   }
 
-  updateProduct(producto: Producto): void {
-    console.log("actualizando: " + producto.id);
+  updateProduct(obj: any): void {
+    if (obj === null) {
+      this.router.navigate(["nuevoproducto"]);
+    }
+
+    let producto: Producto = obj.producto as Producto;
+    console.log("actualizando: " + producto.id);    
+
     this.productosService.actualizarProducto(producto).subscribe(
       response => {
         this.productos = this.productos.filter( pro => pro = producto);
