@@ -44,13 +44,4 @@ export class ProductosComponent implements OnInit {
         this.productos = this.productos.filter( pro => pro = producto);
       });
   }
-
-  createProduct(producto: Producto): void {
-    console.log("creando: " + producto.nombreProducto);
-    this.productosService.crearProducto(producto).subscribe(
-      response => {
-        this.productos = this.productos.filter( pro => pro = producto);
-      });
-  }
-
 }
