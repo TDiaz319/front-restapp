@@ -2,29 +2,31 @@
     Reservas
 </h2>
 <p>Añade reservas</p>
-<div id="principal">
-    
-    <form>
-        <div id="reservar">
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-3 border border-info w-25 p-3 h-75 " id="formulario">
+        <form>
+       
             <div>
-                <label>Cliente</label>
-                <input 
+                <label class="form-label">Cliente</label>
+                <input class="form-control" 
                 type="text" 
                 name="cliente"
                 
                 />
             </div>
             <div>
-                <label>Mesa</label>
-                <input type="text" name="mesa"/>
+                <label class="form-label">Mesa</label>
+                <input type="text" name="mesa" class="form-control" />
             </div>
             <div>
-                <label>Fecha</label>
-                <input type="date" name="fecha"/>
+                <label class="form-label">Fecha</label>
+                <input  class="form-select" type="date" name="fecha"/>
             </div>
             <div>
-                <label>Hora</label>
-                <select name="hora">
+                <label class="form-label">Hora</label>
+                <select  class="form-select" name="hora">
                     <option value="13:00">13:00 h.</option>
                     <option value="13:30">13:30 h.</option>
                     <option value="13:45">13:45 h.</option>
@@ -49,14 +51,15 @@
                 </select> 
             </div>
             <div>
-                <label>Observaciones</label>
-                <textarea name="observaciones"></textarea>
+                <label class="form-label">Observaciones</label>
+                <textarea  class="form-control" name="observaciones"></textarea>
             </div>
-            <button type="submit" name="agregar">Guardar</button>
-        </div>
+            <button type="submit"  class="btn btn-info mt-2" name="agregar">Guardar</button>
+        
     </form>
 
-    <div id="lista">
+      </div>
+      <div class="col-md-3 position-absolute top-50 start-50 translate-middle border border-info w-25 p-3 h-75 " id="lista">
         <p>Cliente:
             <span></span>
         </p>
@@ -69,9 +72,11 @@
         <p>Observaciones: 
             <span></span>
         </p>
-        <button id="editar" type="submit" name="editar">Editar</button>
-            <button id="eliminar" type="submit" name="eliminar">Eliminar</button>
+
+            <button id="editar"  class="btn btn-secondary" type="submit" name="editar">Editar</button>
+            <button id="eliminar" class="float-end btn btn-danger" type="submit" name="eliminar">Eliminar</button>
+      </div>
     </div>
-</div>
+  </div>
 
 

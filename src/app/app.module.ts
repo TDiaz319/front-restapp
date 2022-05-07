@@ -13,6 +13,7 @@ import { ReservasComponent } from './reservas/reservas.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NuevoProductoComponent } from './nuevo-producto/nuevo-producto.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { PedidosComponent } from './pedidos/pedidos.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: "", redirectTo: "inicio", pathMatch: "full" },
   { path: "inicio", component: InicioComponent },
   { path: "reservas", component: ReservasComponent },
-  { path: "nuevoproducto", component: NuevoProductoComponent }
+  { path: "nuevoproducto", component: NuevoProductoComponent },
+  { path: "pedidos", component: PedidosComponent }
 ];
 
 @NgModule({
@@ -31,7 +33,8 @@ const routes: Routes = [
     InicioComponent,
     ReservasComponent,
     NuevoProductoComponent,
-    NavbarComponent
+    NavbarComponent,
+    PedidosComponent
   ],
   imports: [
     BrowserModule,

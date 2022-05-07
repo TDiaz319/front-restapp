@@ -1,12 +1,14 @@
 <div>
    <span id="inventario" > 
-        <button [routerLink]="['/productos']" id="inventario" >
+        <button [routerLink]="['/productos']" id="inventario" class="btn btn-outline-primary ">
             <img id="invent" src=".\assets\inventario2.png"/>
             Inventario
         </button>
     </span>
     <span id="pedidos">
-    <button  id="pedidos"><img src=".\assets\cart.png"/>Pedidos</button>
+    <button [routerLink]="['/pedidos']"  id="pedidos" class="btn btn-outline-success">
+        <img src=".\assets\cart.png"/>Pedidos</button>
 </span>
-    <button [routerLink]="['/reservas']" id="reservas"><img src=".\assets\reserva.png"/>Reservas</button>
+    <button [routerLink]="['/reservas']" id="reservas" class="btn btn-outline-info">
+        <img src=".\assets\reserva.png"/>Reservas</button>
 </div>

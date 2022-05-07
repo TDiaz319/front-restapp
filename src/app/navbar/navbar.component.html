@@ -10,13 +10,13 @@
             <a class="nav-link active" aria-current="page" href="#">Menú</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Inventario</a>
+            <a [routerLink]="['/productos']" class="nav-link active" href="#">Inventario</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled">Pedidos</a>
+            <a [routerLink]="['/pedidos']"  class="nav-link active">Pedidos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled">Reservas</a>
+            <a [routerLink]="['/reservas']" class="nav-link active">Reservas</a>
           </li>
         </ul>
       </div>
