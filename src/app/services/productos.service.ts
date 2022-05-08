@@ -55,11 +55,9 @@ export class ProductosService {
   }
 
   crearProducto(producto: Producto): Observable<Producto> {
-    return this.http.post<Producto>(`${this.urlEndPoint}productos/crearProducto}`, producto, {headers: this.httpHeaders}).pipe(
+    return this.http.post<any>(`${this.urlEndPoint}productos/crearProducto`, producto, {headers: this.httpHeaders}).pipe(
       map ((response: any) => {
-        (response as Producto[]).map( producto => {
-          return producto;
-        });
+        console.log(response);
         return response;
       })
     );

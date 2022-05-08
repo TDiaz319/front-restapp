@@ -1,24 +1,27 @@
 <div class="container col-6" style="margin-top: 10%; padding: 2%;">
-    <form class="row align-items-center">
+
+    <form class="row align-items-center" 
+    [formGroup]="checkoutForm" 
+    (ngSubmit)="onSubmit(checkoutForm.value)">
 
         <fieldset class="field_set">
             <legend>Crear/editar Producto</legend>
             <div class="col-auto">
                 <div class="mb-3">
                     <label for="nombreProducto" class="form-label">Nombre Producto</label>
-                    <input type="text" class="form-control" id="nombreProducto" placeholder="nombre">
+                    <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="nombre">
                 </div>
             </div>
           
             <div class="col-auto">
                 <div class="mb-3">
                     <label for="cantidad" class="form-label">Cantidad</label>
-                    <input type="number" class="form-control" id="cantidad" placeholder="0">
+                    <input type="number" class="form-control" id="cantidad" formControlName="cantidad" placeholder="0">
                 </div>
             </div>
     
             <div class="col-12">
-                <!--<button type="button" (click)="crearProducto(#nombreProducto.value, #cantidad)" class="btn btn-success" id="enviar">Enviar</button>-->
+                <button type="submit" class="btn btn-success" id="enviar">Enviar</button>
             </div>
         </fieldset>        
 
