@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductosService } from '../services/productos.service';
 import { Producto } from '../entidades/producto';
 import { FormBuilder } from '@angular/forms';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-nuevo-producto',
@@ -13,42 +14,39 @@ export class NuevoProductoComponent implements OnInit {
   producto: Producto = new Producto();
   checkoutForm: any;  
 
-  constructor(private productosService: ProductosService, private formBuilder: FormBuilder) {
+  constructor(private productosService: ProductosService, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute) {
       this.checkoutForm = this.formBuilder.group({
-        nombre: "",
-        cantidad: 0
+        nombre: this.producto.nombre,
+        cantidad: this.producto.cantidad
       });
      }
 
   ngOnInit(): void {
-    this.producto = new Producto();
+    this.cargarProducto();
   }
 
-  crearProducto(nombreProducto: string, cantidad: number): void {
-    console.log("creando: " + nombreProducto + " " + cantidad);
-
-    this.producto.nombre = nombreProducto;
-    this.producto.cantidad = cantidad;
-
-    this.productosService.crearProducto(this.producto).subscribe(
-      response => {
-        console.log(response);
-      });
+  cargarProducto(): void {
+    this.activatedRoute.params.subscribe(params =>{
+      let id = params["id"];
+      console.log("id: " + id);
+      if (id) {
+        this.productosService.buscarProducto(id).subscribe( (producto) => this.producto = producto);
+      }
+    });
   }
 
   onSubmit(productoData: Producto) {
-    console.log("Procesando... " + productoData.nombre, " " + productoData.cantidad);
+    console.log("Procesando... " + productoData.nombre, " " + productoData.cantidad);    
+    console.log("producto: " + this.producto.nombre, " " + this.producto.cantidad);
 
     this.producto.nombre = productoData.nombre;
     this.producto.cantidad = productoData.cantidad;
 
     this.productosService.crearProducto(this.producto).subscribe(
       response => {
-        console.log(response);
       });
 
     this.producto = new Producto();
     this.checkoutForm.reset();    
   }
-
 }

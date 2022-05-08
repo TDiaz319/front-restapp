@@ -1,4 +1,4 @@
-<button type="button" (click)="updateProduct(null)" class="btn btn-primary btn-sm m-1">Nuevo Producto</button>
+<button type="button" (click)="createProduct()" class="btn btn-primary btn-sm m-1">Nuevo Producto</button>
 
 <table class="table table-striped">
     <thead>
@@ -18,7 +18,7 @@
             <td>{{ producto.cantidad }}</td>
             <td>
                 <button type="button" (click)="deleteProduct(producto)" class="btn btn-outline-danger btn-sm m-1">Borrar</button>
-                <button type="button" (click)="updateProduct(producto)" class="btn btn-outline-info btn-sm">Editar</button>
+                <button type="button" [routerLink] ="['/nuevoproducto/', producto.id]" class="btn btn-outline-info btn-sm">Editar</button>
             </td>
         </tr>
     </tbody>

@@ -32,6 +32,15 @@ export class ProductosService {
     );
   }
 
+  buscarProducto(id: number): Observable<Producto> {
+    return this.http.get(`${this.urlEndPoint}productos/buscar/${id}`, {headers: this.httpHeaders}).pipe(
+      map ((response: any) => {
+        console.log(response);
+        return response;
+      })
+    );
+  }
+
   borrarProducto(id: number): Observable<Producto> {
     return this.http.delete<Producto>(`${this.urlEndPoint}productos/borrar/${id}`, {headers: this.httpHeaders}).pipe(
       map ((response: any) => {
@@ -49,6 +58,8 @@ export class ProductosService {
         (response as Producto[]).map( producto => {
           return producto;
         });
+        console.log(response);
+        console.log(producto);
         return response;
       })
     );

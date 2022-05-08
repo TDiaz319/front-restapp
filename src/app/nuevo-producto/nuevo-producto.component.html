@@ -9,14 +9,16 @@
             <div class="col-auto">
                 <div class="mb-3">
                     <label for="nombreProducto" class="form-label">Nombre Producto</label>
-                    <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="nombre">
+                    <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="nombre" 
+                    [(ngModel)]="producto.nombre">
                 </div>
             </div>
           
             <div class="col-auto">
                 <div class="mb-3">
                     <label for="cantidad" class="form-label">Cantidad</label>
-                    <input type="number" class="form-control" id="cantidad" formControlName="cantidad" placeholder="0">
+                    <input type="number" class="form-control" id="cantidad" formControlName="cantidad" placeholder="0" 
+                    [(ngModel)]="producto.cantidad">
                 </div>
             </div>
     

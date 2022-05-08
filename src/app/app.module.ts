@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: "inicio", component: InicioComponent },
   { path: "reservas", component: ReservasComponent },
   { path: "nuevoproducto", component: NuevoProductoComponent },
+  { path: "nuevoproducto/:id", component: NuevoProductoComponent },
   { path: "pedidos", component: PedidosComponent }
 ];
 

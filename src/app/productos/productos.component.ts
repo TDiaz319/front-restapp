@@ -31,17 +31,16 @@ export class ProductosComponent implements OnInit {
       });
   }
 
-  updateProduct(obj: any): void {
-    if (obj === null) {
-      this.router.navigate(["nuevoproducto"]);
-    }
-
-    let producto: Producto = obj.producto as Producto;
+  updateProduct(obj: Producto): void {
+    let producto: Producto = obj;
     console.log("actualizando: " + producto.id);    
 
     this.productosService.actualizarProducto(producto).subscribe(
       response => {
-        this.productos = this.productos.filter( pro => pro = producto);
       });
+  }
+
+  createProduct(): void {
+    this.router.navigate(["nuevoproducto"]);
   }
 }
