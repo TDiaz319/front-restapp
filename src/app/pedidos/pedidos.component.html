@@ -1,9 +1,36 @@
-<p>pedidos</p>
+
 <form>
-    <div>
-        <label>Elige proveedor</label>
-        <input type="select" name="proveedor">
+    <div class="col-auto">
+        <div class="mb-3">
+            <label for="proveedor">Elige proveedor:</label>
+            <select id="proveedor" class="form-select">
+                <option *ngFor="let proveedor of proveedores;" value="{{ proveedor.id }}">{{ proveedor.nombre }}</option>
+            </select>
+        </div>
     </div>
 
    <h3> Listado de productos</h3>
+
+   <table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let producto of productos;">
+            <td>
+                {{ producto.id | number}}
+            </td>
+            <td>{{ producto.nombre }}</td>
+            <td><{{ producto.cantidad }}></td>
+            <td>
+                <button type="button" class="btn btn-outline-info btn-sm">Añadir</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
 </form>
