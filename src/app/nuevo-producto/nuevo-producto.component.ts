@@ -3,6 +3,7 @@ import { ProductosService } from '../services/productos.service';
 import { Producto } from '../entidades/producto';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from "@angular/router";
+import swal from "sweetalert2";
 
 @Component({
   selector: 'app-nuevo-producto',
@@ -36,14 +37,13 @@ export class NuevoProductoComponent implements OnInit {
   }
 
   onSubmit(productoData: Producto) {
-    console.log("Procesando... " + productoData.nombre, " " + productoData.cantidad);    
-    console.log("producto: " + this.producto.nombre, " " + this.producto.cantidad);
 
     this.producto.nombre = productoData.nombre;
     this.producto.cantidad = productoData.cantidad;
 
     this.productosService.crearProducto(this.producto).subscribe(
       response => {
+        swal.fire("Producto Guardado", `El Producto ${productoData.nombre} ha sido creado/actualizado con éxito!`, "success");
       });
 
     this.producto = new Producto();

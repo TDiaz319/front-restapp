@@ -14,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NuevoProductoComponent } from './nuevo-producto/nuevo-producto.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
