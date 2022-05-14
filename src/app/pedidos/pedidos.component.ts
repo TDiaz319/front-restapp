@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ProductosService } from '../services/productos.service';
+import { ProveedorService } from '../services/proveedor.service';
+import { Producto } from '../entidades/producto';
+import { FormBuilder } from '@angular/forms';
+import { ActivatedRoute } from "@angular/router";
+import swal from "sweetalert2";
+import { Proveedor } from '../entidades/proveedor';
+import { ModalService } from '../services/modal.service';
 
 @Component({
   selector: 'app-pedidos',
@@ -7,9 +15,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PedidosComponent implements OnInit {
 
-  constructor() { }
+  productos: Producto[] = [];
+  proveedores: Proveedor[] = [];
+  checkoutForm: any;
+
+  constructor(private productosService: ProductosService,
+    private modalService: ModalService, 
+    private proveedorService: ProveedorService) {
+
+     }
 
   ngOnInit(): void {
+    this.cargarProducto();
+    this.cargarProveedores();
+  }
+
+  cargarProducto(): void {
+    this.productosService.getProducto().subscribe(
+      response => {
+        this.productos = response as Producto[];
+        console.log(response);
+      });
+  }
+  cargarProveedores(): void {
+    this.proveedorService.getProveedor().subscribe(
+      response => {
+        this.proveedores = response as Proveedor[];
+      });
+  }
+  onSubmit(productoData: Producto) {
+    console.log(productoData);
+   
   }
 
 }
