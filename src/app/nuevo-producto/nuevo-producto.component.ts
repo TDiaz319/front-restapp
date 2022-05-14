@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductosService } from '../services/productos.service';
+import { ProveedorService } from '../services/proveedor.service';
 import { Producto } from '../entidades/producto';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from "@angular/router";
 import swal from "sweetalert2";
+import { Proveedor } from '../entidades/proveedor';
 
 @Component({
   selector: 'app-nuevo-producto',
@@ -13,9 +15,14 @@ import swal from "sweetalert2";
 export class NuevoProductoComponent implements OnInit {
 
   producto: Producto = new Producto();
+  proveedores: Proveedor[] = [];
   checkoutForm: any;  
 
-  constructor(private productosService: ProductosService, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute) {
+  constructor(private productosService: ProductosService, 
+    private formBuilder: FormBuilder, 
+    private activatedRoute: ActivatedRoute,
+    private proveedorService: ProveedorService) {
+
       this.checkoutForm = this.formBuilder.group({
         nombre: this.producto.nombre,
         cantidad: this.producto.cantidad
@@ -24,6 +31,7 @@ export class NuevoProductoComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarProducto();
+    this.cargarProveedores();
   }
 
   cargarProducto(): void {
@@ -34,6 +42,14 @@ export class NuevoProductoComponent implements OnInit {
         this.productosService.buscarProducto(id).subscribe( (producto) => this.producto = producto);
       }
     });
+  }
+
+  cargarProveedores(): void {
+    this.proveedorService.getProveedor().subscribe(
+      response => {
+        this.proveedores = response as Proveedor[];
+        console.log(response);
+      });
   }
 
   onSubmit(productoData: Producto) {

@@ -37,7 +37,7 @@ export class ProveedorService {
     );
   }
 
-  borrarProducto(id: number): Observable<Proveedor> {
+  borrarProveedor(id: number): Observable<Proveedor> {
     return this.http.delete<Proveedor>(`${this.urlEndPoint}proveedores/borrar/${id}`, {headers: this.httpHeaders}).pipe(
       map ((response: any) => {
         (response as Proveedor[]).map( proveedor => {
