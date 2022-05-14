@@ -18,11 +18,7 @@ export class ProveedorService {
 
   getProveedor(): Observable<any> {
     // el HTTP.GET devuelve un observable
-    return this.http.get(this.urlEndPoint + "proveedor").pipe(
-      tap( (response: any) => {
-        (response as Proveedor[]).forEach( proveedor => {  
-        })
-      }),
+    return this.http.get(this.urlEndPoint + "proveedores").pipe(      
       map ((response: any) => {
         (response as Proveedor[]).map( proveedor => {
           return proveedor;
@@ -33,7 +29,7 @@ export class ProveedorService {
   }
 
   buscarProveedor(id: number): Observable<Proveedor> {
-    return this.http.get(`${this.urlEndPoint}proveedor/buscar/${id}`, {headers: this.httpHeaders}).pipe(
+    return this.http.get(`${this.urlEndPoint}proveedores/buscar/${id}`, {headers: this.httpHeaders}).pipe(
       map ((response: any) => {
         console.log(response);
         return response;
@@ -42,7 +38,7 @@ export class ProveedorService {
   }
 
   borrarProducto(id: number): Observable<Proveedor> {
-    return this.http.delete<Proveedor>(`${this.urlEndPoint}proveedor/borrar/${id}`, {headers: this.httpHeaders}).pipe(
+    return this.http.delete<Proveedor>(`${this.urlEndPoint}proveedores/borrar/${id}`, {headers: this.httpHeaders}).pipe(
       map ((response: any) => {
         (response as Proveedor[]).map( proveedor => {
           return proveedor;
@@ -53,7 +49,7 @@ export class ProveedorService {
   }
 
   actualizarProveedor(proveedor: Proveedor): Observable<Proveedor> {
-    return this.http.put<Proveedor>(`${this.urlEndPoint}proveedor/updateProveedor/${proveedor.id}`, proveedor, {headers: this.httpHeaders}).pipe(
+    return this.http.put<Proveedor>(`${this.urlEndPoint}proveedores/updateProveedor/${proveedor.id}`, proveedor, {headers: this.httpHeaders}).pipe(
       map ((response: any) => {
         (response as Proveedor[]).map( proveedor => {
           return proveedor;
@@ -66,7 +62,7 @@ export class ProveedorService {
   }
 
   crearProveedor(proveedor: Proveedor): Observable<Proveedor> {
-    return this.http.post<any>(`${this.urlEndPoint}proveedor/crearProveedor`, proveedor, {headers: this.httpHeaders}).pipe(
+    return this.http.post<any>(`${this.urlEndPoint}proveedores/crearProveedor`, proveedor, {headers: this.httpHeaders}).pipe(
       map ((response: any) => {
         console.log(response);
         return response;
