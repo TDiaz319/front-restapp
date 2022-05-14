@@ -4,6 +4,7 @@ import { HttpClient, HttpEvent, HttpHeaders, HttpRequest } from "@angular/common
 import { Router } from "@angular/router";
 import { map, catchError, tap } from "rxjs/operators";
 import { Producto } from '../entidades/producto';
+import swal from "sweetalert2";
 
 @Injectable({
   providedIn: 'root'
@@ -19,10 +20,6 @@ export class ProductosService {
   getProducto(): Observable<any> {
     // el HTTP.GET devuelve un observable
     return this.http.get(this.urlEndPoint + "productos").pipe(
-      tap( (response: any) => {
-        (response as Producto[]).forEach( producto => {  
-        })
-      }),
       map ((response: any) => {
         (response as Producto[]).map( producto => {
           return producto;
@@ -48,6 +45,15 @@ export class ProductosService {
           return producto;
         });
         return response;
+      }),
+      catchError(e => {
+        if (e.status == 400) {
+          return throwError(() => e);
+        }
+
+        console.error(e.error.mensaje);
+        swal.fire(e.error.mensaje, e.error.error, "error");
+        return throwError(() => e);
       })
     );
   }
@@ -65,11 +71,18 @@ export class ProductosService {
     );
   }
 
-  crearProducto(producto: Producto): Observable<Producto> {
+  crearProducto(producto: Producto) : Observable<Producto> {
     return this.http.post<any>(`${this.urlEndPoint}productos/crearProducto`, producto, {headers: this.httpHeaders}).pipe(
-      map ((response: any) => {
-        console.log(response);
-        return response;
+      map( (response: any) => response.producto as Producto),
+      catchError(e => {
+
+        if (e.status == 400) {
+          return throwError(() => e);
+        }
+
+        console.error(e.error.mensaje);
+        swal.fire(e.error.mensaje, e.error.error, "error");
+        return throwError(() => e);
       })
     );
   }

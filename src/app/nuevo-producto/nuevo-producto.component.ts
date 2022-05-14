@@ -38,7 +38,6 @@ export class NuevoProductoComponent implements OnInit {
   cargarProducto(): void {
     this.activatedRoute.params.subscribe(params =>{
       let id = params["id"];
-      console.log("id: " + id);
       if (id) {
         this.productosService.buscarProducto(id).subscribe( (producto) => this.producto = producto);
       }
