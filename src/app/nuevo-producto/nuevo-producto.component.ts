@@ -25,7 +25,8 @@ export class NuevoProductoComponent implements OnInit {
 
       this.checkoutForm = this.formBuilder.group({
         nombre: this.producto.nombre,
-        cantidad: this.producto.cantidad
+        cantidad: this.producto.cantidad,
+        proveedor: this.producto.proveedor.id
       });
      }
 
@@ -48,14 +49,15 @@ export class NuevoProductoComponent implements OnInit {
     this.proveedorService.getProveedor().subscribe(
       response => {
         this.proveedores = response as Proveedor[];
-        console.log(response);
       });
   }
 
   onSubmit(productoData: Producto) {
+    console.log(productoData);
 
     this.producto.nombre = productoData.nombre;
     this.producto.cantidad = productoData.cantidad;
+    //this.producto.proveedor.id = productoData.proveedor;
 
     this.productosService.crearProducto(this.producto).subscribe(
       response => {
