@@ -1,13 +1,13 @@
 export class Reserva {
     numeroReserva: number;
-    dia: string;
+    dia: Date;
     hora: string;
     cliente:string;
     nMesa: number;
 
     constructor() {
         this.numeroReserva = 0;
-        this.dia = "";
+        this.dia = new Date;
         this.hora = "";
         this.cliente= "";
         this.nMesa= 0;

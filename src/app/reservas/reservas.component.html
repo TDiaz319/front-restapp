@@ -3,12 +3,12 @@
 </h2>
 <p>Añade reservas</p>
 
-<div class="float-middle">
+<!-- <div class="float-middle">
 <form >
     <label class="form-label">Día</label>
     <input  class="form-control-sm" type="date">
 </form>
-</div>
+</div> -->
 <div class="container pt-3">
     <div class="row">
       <div class="col-md-3 border border-info w-25 p-3 h-75 " id="formulario">
@@ -21,20 +21,27 @@
                 <input class="form-control" 
                 type="text" 
                 name="cliente"
-                
+                [(ngModel)]="reserva.cliente"
+                formControlName="cliente"
                 />
             </div>
             <div>
                 <label class="form-label">Mesa</label>
-                <input type="text" name="mesa" class="form-control" />
+                <input type="text" name="mesa" class="form-control" 
+                [(ngModel)]="reserva.nMesa"
+                formControlName="mesa"/>
             </div>
             <div>
                 <label class="form-label">Fecha</label>
-                <input  class="form-select" type="date" name="fecha"/>
+                <input  class="form-select" type="date" name="fecha"
+                [(ngModel)]="reserva.dia"
+                formControlName="fecha"/>
             </div>
             <div>
                 <label class="form-label">Hora</label>
-                <select  class="form-select" name="hora">
+                <select  class="form-select" name="hora"
+                [(ngModel)]="reserva.hora"
+                formControlName="hora">
                     <option value="13:00">13:00 h.</option>
                     <option value="13:30">13:30 h.</option>
                     <option value="13:45">13:45 h.</option>
@@ -58,10 +65,10 @@
                     <option value="23:30">23:30 h.</option>
                 </select> 
             </div>
-            <div>
+            <!-- <div>
                 <label class="form-label">Observaciones</label>
                 <textarea  class="form-control" name="observaciones"></textarea>
-            </div>
+            </div> -->
             <button type="submit"  class="btn btn-info mt-2" name="agregar">Guardar</button>
         
     </form>
