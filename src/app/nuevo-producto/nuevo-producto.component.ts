@@ -56,7 +56,7 @@ export class NuevoProductoComponent implements OnInit {
 
     this.producto.nombre = productoData.nombre;
     this.producto.cantidad = productoData.cantidad;
-    //this.producto.proveedor.id = productoData.proveedor;
+    this.producto.proveedor = productoData.proveedor;
 
     this.productosService.crearProducto(this.producto).subscribe(
       response => {

@@ -2,15 +2,17 @@ export class Reserva {
     numeroReserva: number;
     dia: Date;
     hora: string;
-    cliente:string;
-    nMesa: number;
+    cliente: string;
+    telefono: number;
+    mesa: number;
 
     constructor() {
         this.numeroReserva = 0;
         this.dia = new Date;
         this.hora = "";
         this.cliente= "";
-        this.nMesa= 0;
+        this.telefono = 0;
+        this.mesa= 0;
     }
 }
 

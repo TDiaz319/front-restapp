@@ -22,20 +22,29 @@
                 type="text" 
                 name="cliente"
                 [(ngModel)]="reserva.cliente"
-                formControlName="cliente"
-                />
+                formControlName="cliente" />
+            </div>
+            <div>
+                <label class="form-label">Teléfono Cliente</label>
+                <input class="form-control" 
+                type="number" 
+                name="telefono"
+                min="6000000"
+                max="999999999"
+                [(ngModel)]="reserva.telefono"
+                formControlName="telefono" />
             </div>
             <div>
                 <label class="form-label">Mesa</label>
                 <input type="text" name="mesa" class="form-control" 
-                [(ngModel)]="reserva.nMesa"
+                [(ngModel)]="reserva.mesa"
                 formControlName="mesa"/>
             </div>
             <div>
                 <label class="form-label">Fecha</label>
-                <input  class="form-select" type="date" name="fecha"
+                <input  class="form-select" type="date" name="dia"
                 [(ngModel)]="reserva.dia"
-                formControlName="fecha"/>
+                formControlName="dia"/>
             </div>
             <div>
                 <label class="form-label">Hora</label>

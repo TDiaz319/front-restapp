@@ -19,8 +19,9 @@ export class ReservasComponent implements OnInit {
 
     this.checkoutForm = this.formBuilder.group({
       cliente: this.reserva.cliente,
-      mesa: this.reserva.nMesa,
-      fecha: this.reserva.dia,
+      telefono: this.reserva.telefono,
+      mesa: this.reserva.mesa,
+      dia: this.reserva.dia,
       hora: this.reserva.hora
     });
    }
@@ -32,9 +33,10 @@ export class ReservasComponent implements OnInit {
   onSubmit(reservaData: Reserva) {
     console.log(reservaData);
     this.reserva.cliente = reservaData.cliente;
+    this.reserva.telefono = reservaData.telefono;
     this.reserva.dia = reservaData.dia;
     this.reserva.hora = reservaData.hora;
-    this.reserva.nMesa =reservaData.nMesa;
+    this.reserva.mesa = reservaData.mesa;
 
     this.reservaService.crearReserva(this.reserva).subscribe(
       response => {
