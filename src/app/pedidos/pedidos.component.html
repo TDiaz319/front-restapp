@@ -1,9 +1,9 @@
-
+<p class="h2 position-relative start-50">Pedidos</p>
 <form>
     <div class="col-auto">
         <div class="mb-3">
-            <label for="proveedor">Elige proveedor:</label>
-            <select id="proveedor" class="form-select">
+            <label for="proveedor" class="form-label">Elige proveedor:</label>
+            <select id="proveedor" class="form-select-sm">
                 <option *ngFor="let proveedor of proveedores;" value="{{ proveedor.id }}">{{ proveedor.nombre }}</option>
             </select>
         </div>

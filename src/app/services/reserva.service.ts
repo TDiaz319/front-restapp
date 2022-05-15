@@ -58,8 +58,6 @@ export class ReservaService {
         (response as Reserva[]).map( reserva => {
           return reserva;
         });
-        console.log(response);
-        console.log(reserva);
         return response;
       })
     );
@@ -68,7 +66,6 @@ export class ReservaService {
   crearReserva(reserva: Reserva): Observable<Reserva> {
     return this.http.post<any>(`${this.urlEndPoint}reserva/crearReserva`, reserva, {headers: this.httpHeaders}).pipe(
       map ((response: any) => {
-        console.log(response);
         return response;
       })
     );
