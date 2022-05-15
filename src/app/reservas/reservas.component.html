@@ -12,7 +12,9 @@
 <div class="container">
     <div class="row">
       <div class="col-md-3 border border-info w-25 p-3 h-75 " id="formulario">
-        <form>
+        <form class="row align-items-center" 
+        [formGroup]="checkoutForm" 
+        (ngSubmit)="onSubmit(checkoutForm.value)">
        
             <div>
                 <label class="form-label">Cliente</label>
