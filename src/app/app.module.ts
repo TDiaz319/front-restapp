@@ -15,6 +15,7 @@ import { NuevoProductoComponent } from './nuevo-producto/nuevo-producto.componen
 import { NavbarComponent } from './navbar/navbar.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListaReservasComponent } from './lista-reservas/lista-reservas.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: "reservas", component: ReservasComponent },
   { path: "nuevoproducto", component: NuevoProductoComponent },
   { path: "nuevoproducto/:id", component: NuevoProductoComponent },
-  { path: "pedidos", component: PedidosComponent }
+  { path: "pedidos", component: PedidosComponent },
+  { path: "listareservas", component: ListaReservasComponent }
 ];
 
 @NgModule({
@@ -36,7 +38,8 @@ const routes: Routes = [
     ReservasComponent,
     NuevoProductoComponent,
     NavbarComponent,
-    PedidosComponent
+    PedidosComponent,
+    ListaReservasComponent
   ],
   imports: [
     BrowserModule,
