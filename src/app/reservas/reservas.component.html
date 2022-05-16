@@ -1,17 +1,17 @@
+
+<div>
+    <button [routerLink]="['/listareservas']"
+    class="btn btn-info  position-absolute end-0 me-5"  >Ir lista reservas >></button>
+    </div>
 <h2>
     Reservas
 </h2>
 <p>Añade reservas</p>
 
-<!-- <div class="float-middle">
-<form >
-    <label class="form-label">Día</label>
-    <input  class="form-control-sm" type="date">
-</form>
-</div> -->
+
 <div class="container pt-3">
     <div class="row">
-      <div class="col-md-3 border border-info w-25 p-3 h-75 " id="formulario">
+      <div class="col-md-3 border border-info w-20 p-3 h-75 " id="formulario">
         <form class="row align-items-center" 
         [formGroup]="checkoutForm" 
         (ngSubmit)="onSubmit(checkoutForm.value)">
@@ -74,34 +74,14 @@
                     <option value="23:30">23:30 h.</option>
                 </select> 
             </div>
-            <!-- <div>
-                <label class="form-label">Observaciones</label>
-                <textarea  class="form-control" name="observaciones"></textarea>
-            </div> -->
+    
             <button type="submit"  class="btn btn-info mt-2" name="agregar">Guardar</button>
         
     </form>
-
-      </div>
-
-      <div class="col-md-3 float-end border border-info w-25  p-3 h-75 " id="lista">
-        <p>Cliente:
-            <span></span>
-        </p>
-        <p>Mesa:
-            <span></span>
-        </p>
-        <p>Fecha:
-            <span></span>
-        </p>
-        <p>Observaciones: 
-            <span></span>
-        </p>
-
-            <button id="editar"  class="btn btn-secondary" type="submit" name="editar">Editar</button>
-            <button id="eliminar" class="float-end btn btn-danger" type="submit" name="eliminar">Eliminar</button>
-      </div>
     </div>
-  </div>
+
+   
+
+
 
 
