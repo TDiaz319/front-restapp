@@ -38,6 +38,17 @@ export class ProductosService {
     );
   }
 
+  buscarProductoPorProveedor(id: number): Observable<any> {
+    return this.http.get(`${this.urlEndPoint}productos/buscarporproveedor/${id}`, {headers: this.httpHeaders}).pipe(
+      map ((response: any) => {
+        (response as Producto[]).map( producto => {
+          return producto;
+        });
+        return response;
+      })
+    );
+  }
+
   borrarProducto(id: number): Observable<Producto> {
     return this.http.delete<Producto>(`${this.urlEndPoint}productos/borrar/${id}`, {headers: this.httpHeaders}).pipe(
       map ((response: any) => {
