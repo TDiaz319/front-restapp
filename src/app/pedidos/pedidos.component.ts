@@ -27,6 +27,7 @@ export class PedidosComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarProveedores();
+    this.buscarProductos(1);
   }
   
   cargarProveedores(): void {
@@ -35,18 +36,23 @@ export class PedidosComponent implements OnInit {
         this.proveedores = response as Proveedor[];
       });
   }
+  
   onSubmit(productoData: Producto) {
     console.log(productoData);
    
   }
 
-  recargaTabla(event: any) {
-    console.log(event.target.value);
-    this.productosService.buscarProductoPorProveedor(event.target.value).subscribe(
+  buscarProductos(id: number) {
+    this.productosService.buscarProductoPorProveedor(id).subscribe(
       response => {
         this.productos = response as Producto[];
         console.log(response);
       });
+  }
+
+  recargaTabla(event: any) {
+    console.log(event.target.value);
+    this.buscarProductos(event.target.value);    
   }
 
 }
