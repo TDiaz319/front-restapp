@@ -52,9 +52,6 @@ export class ProductosService {
   borrarProducto(id: number): Observable<Producto> {
     return this.http.delete<Producto>(`${this.urlEndPoint}productos/borrar/${id}`, {headers: this.httpHeaders}).pipe(
       map ((response: any) => {
-        (response as Producto[]).map( producto => {
-          return producto;
-        });
         return response;
       }),
       catchError(e => {
@@ -71,13 +68,16 @@ export class ProductosService {
 
   actualizarProducto(producto: Producto): Observable<Producto> {
     return this.http.put<Producto>(`${this.urlEndPoint}productos/updateProducto/${producto.id}`, producto, {headers: this.httpHeaders}).pipe(
-      map ((response: any) => {
-        (response as Producto[]).map( producto => {
-          return producto;
-        });
-        console.log(response);
-        console.log(producto);
-        return response;
+      map( (response: any) => response.producto as Producto),
+      catchError(e => {
+
+        if (e.status == 400) {
+          return throwError(() => e);
+        }
+
+        console.error(e.error.mensaje);
+        swal.fire(e.error.mensaje, e.error.error, "error");
+        return throwError(() => e);
       })
     );
   }

@@ -37,9 +37,17 @@ export class PedidosComponent implements OnInit {
       });
   }
   
-  onSubmit(productoData: Producto) {
-    console.log(productoData);
-   
+  submit(producto: Producto, cantidad: string) {
+    console.log(producto);
+    console.log("Cantidad: " + cantidad);
+    let nuevaCantidad: number = Number(producto.cantidad) + Number(cantidad);
+    console.log("Nueva cantidad: " + nuevaCantidad);
+
+    producto.cantidad = nuevaCantidad;
+    this.productosService.actualizarProducto(producto).subscribe(
+      response => {
+        swal.fire("Producto pedido", `El pedido ${producto.nombre} ha sido realizado con éxito!`, "success");
+      });   
   }
 
   buscarProductos(id: number) {
