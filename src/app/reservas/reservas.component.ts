@@ -44,6 +44,7 @@ export class ReservasComponent implements OnInit {
 
       });
 
+      
     this.reserva = new Reserva();
     this.checkoutForm.reset();
   }
