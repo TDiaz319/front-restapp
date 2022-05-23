@@ -1,13 +1,13 @@
 <div class="float-middle">
     <form >
         <label for="dia" class="form-label">Día</label>
-        <input  id="dia" class="form-control-sm" type="date">
-        <!-- <option *ngFor="let reserva of reserva;" value="{{ reserva.dia }}"></option> -->
+        <input (change)="recargaTabla($event)"  id="dia" class="form-control-sm" type="date">
+       
     </form>
 </div>
-<div class="col-md-3  border border-info w-25  p-3 h-75 " id="lista">
+<div *ngFor="let reserva of reserva;" class="col-md-3  border border-info w-25  p-3 h-75 " id="lista">
     <p>Cliente:
-        <span></span>
+        <span>{{reserva.cliente}}</span>
     </p>
     <p>Mesa:
         <span></span>
