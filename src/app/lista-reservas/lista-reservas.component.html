@@ -1,24 +1,26 @@
-<div class="float-middle">
-    <form >
-        <label for="dia" class="form-label">Día</label>
-        <input (change)="recargaTabla($event)"  id="dia" class="form-control-sm" type="date">
-       
-    </form>
+<div class="contianer m-2">
+    <div class="float-middle">
+        <form >
+            <label for="dia" class="form-label">Día</label>
+            <input (change)="recargaTabla($event)"  id="dia" class="form-control-sm" type="date">
+           
+        </form>
+    </div>
+    <div *ngFor="let reserva of reservas;" class="col-md-3 border border-info w-25 p-3 h-75 m-2" id="lista">
+        <p>Cliente:
+            <span>{{reserva.cliente}}</span>
+        </p>
+        <p>Mesa:
+            <span>{{reserva.mesa}}</span>
+        </p>
+        <p>Fecha:
+            <span>{{reserva.dia | date: 'dd/MM/yyyy'}} - {{reserva.hora}}</span>
+        </p>
+        <p>Teléfono: 
+            <span>{{reserva.telefono}}</span>
+        </p>
+    
+            <button id="editar"  class="btn btn-secondary" name="editar">Editar</button>
+            <button id="eliminar" class="float-end btn btn-danger" (click)="eliminarReserva(reserva)" name="eliminar">Eliminar</button>
+      </div>
 </div>
-<div *ngFor="let reserva of reserva;" class="col-md-3  border border-info w-25  p-3 h-75 " id="lista">
-    <p>Cliente:
-        <span>{{reserva.cliente}}</span>
-    </p>
-    <p>Mesa:
-        <span></span>
-    </p>
-    <p>Fecha:
-        <span></span>
-    </p>
-    <p>Observaciones: 
-        <span></span>
-    </p>
-
-        <button id="editar"  class="btn btn-secondary" type="submit" name="editar">Editar</button>
-        <button id="eliminar" class="float-end btn btn-danger" type="submit" name="eliminar">Eliminar</button>
-  </div>
