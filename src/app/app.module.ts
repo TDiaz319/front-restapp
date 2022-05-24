@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: "nuevoproducto/:id", component: NuevoProductoComponent },
   { path: "pedidos", component: PedidosComponent },
   { path: "listareservas", component: ListaReservasComponent },
-  { path: "editarreserva", component: EditarReservaComponent }
+  { path: "editarreserva/:id", component: EditarReservaComponent }
 ];
 
 @NgModule({

@@ -9,14 +9,15 @@
 <p>Añade reservas</p>
 
 
-<div class="container pt-3">
-    <div class="row">
-      <div class="col-md-3 border border-info w-20 p-3 h-75 " id="formulario">
+<div class="container col-6" style="margin-top: 10%; padding: 2%;">
+ 
         <form class="row align-items-center" 
         [formGroup]="checkoutForm" 
         (ngSubmit)="onSubmit(checkoutForm.value)">
-       
-            <div>
+        <fieldset class="field_set">
+            <legend class="fw-bold">Reserva</legend>
+            <div class="col-auto">
+            <div class="mb-3">
                 <label class="form-label">Cliente</label>
                 <input class="form-control" 
                 type="text" 
@@ -24,7 +25,10 @@
                 [(ngModel)]="reserva.cliente"
                 formControlName="cliente" />
             </div>
-            <div>
+            </div>
+
+            <div class="col-auto">
+            <div class="mb-3">
                 <label class="form-label">Teléfono Cliente</label>
                 <input class="form-control" 
                 type="number" 
@@ -34,19 +38,28 @@
                 [(ngModel)]="reserva.telefono"
                 formControlName="telefono" />
             </div>
-            <div>
+            </div>
+
+            <div class="col-auto">
+                <div class="mb-3">
                 <label class="form-label">Mesa</label>
                 <input type="text" name="mesa" class="form-control" 
                 [(ngModel)]="reserva.mesa"
                 formControlName="mesa"/>
+                </div>
             </div>
-            <div>
+
+            <div class="col-auto">
+                <div class="mb-3">
                 <label class="form-label">Fecha</label>
                 <input  class="form-select" type="date" name="dia"
                 [(ngModel)]="reserva.dia"
                 formControlName="dia"/>
             </div>
-            <div>
+            </div>
+
+            <div class="col-auto">
+                <div class="mb-3">
                 <label class="form-label">Hora</label>
                 <select  class="form-select" name="hora"
                 [(ngModel)]="reserva.hora"
@@ -74,9 +87,9 @@
                     <option value="23:30">23:30 h.</option>
                 </select> 
             </div>
-    
+            </div>
             <button type="submit"  class="btn btn-info mt-2" name="agregar">Guardar</button>
-        
+        </fieldset>
     </form>
     </div>
 

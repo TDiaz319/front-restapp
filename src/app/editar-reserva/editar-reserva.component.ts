@@ -16,22 +16,47 @@ export class EditarReservaComponent implements OnInit {
 
   constructor(private reservaService: ReservaService,
     private formBuilder: FormBuilder, 
-    private activatedRoute: ActivatedRoute
-  ) { this.checkoutForm = this.formBuilder.group({});
+    private activatedRoute: ActivatedRoute) { 
+      
+    this.checkoutForm = this.formBuilder.group({
+      cliente: this.reserva.cliente,
+      telefono: this.reserva.telefono,
+      mesa: this.reserva.mesa,
+      dia: this.reserva.dia,
+      hora: this.reserva.hora,
+      id: this.reserva.numeroReserva
+    });
    
   }
 
   ngOnInit(): void {
     this.cargarReserva();
   }
-cargarReserva():void {
-  this.reservaService.getReserva().subscribe(
-    response => {
-      this.reservas = response as Reserva[];
-    }
-  );
 
-    
+cargarReserva():void {
+  this.activatedRoute.params.subscribe(params => {
+    let id = params ["id"];
+    if(id){
+      this.reservaService.buscarReserva(id).subscribe( (reserva)=> this.reserva= reserva);
+    }
+  });
+ 
+  }
+  onSubmit(reservaData:Reserva){
+    console.log(reservaData);
+
+    this.reserva.cliente = reservaData.cliente;
+    this.reserva.telefono = reservaData.telefono;
+    this.reserva.mesa = reservaData.mesa;
+    this.reserva.dia = reservaData.dia;
+    this.reserva.hora = reservaData.hora;
+    this.reserva.numeroReserva = reservaData.numeroReserva;
+
+    this.reservaService.crearReserva(this.reserva).subscribe(
+      response => {}
+    );
+    this.reserva = new Reserva();
+    this.checkoutForm.reset();
   }
 }
 

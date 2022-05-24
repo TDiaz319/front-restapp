@@ -20,7 +20,7 @@
             <span>{{reserva.telefono}}</span>
         </p>
     
-            <button id="editar"  class="btn btn-secondary" name="editar">Editar</button>
+            <button id="editar" [routerLink]="['/editarreserva/', reserva.numeroReserva]" class="btn btn-secondary" name="editar">Editar</button>
             <button id="eliminar" class="float-end btn btn-danger" (click)="eliminarReserva(reserva)" name="eliminar">Eliminar</button>
       </div>
 </div>
