@@ -16,6 +16,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListaReservasComponent } from './lista-reservas/lista-reservas.component';
+import { EditarReservaComponent } from './editar-reserva/editar-reserva.component';
 
 
 const routes: Routes = [
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: "nuevoproducto", component: NuevoProductoComponent },
   { path: "nuevoproducto/:id", component: NuevoProductoComponent },
   { path: "pedidos", component: PedidosComponent },
-  { path: "listareservas", component: ListaReservasComponent }
+  { path: "listareservas", component: ListaReservasComponent },
+  { path: "editarreserva", component: EditarReservaComponent }
 ];
 
 @NgModule({
