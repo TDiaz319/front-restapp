@@ -42,6 +42,7 @@ export class PedidosComponent implements OnInit {
     console.log("Cantidad: " + cantidad);
     let nuevaCantidad: number = Number(producto.cantidad) + Number(cantidad);
     console.log("Nueva cantidad: " + nuevaCantidad);
+    console.log(producto.proveedor);
 
     producto.cantidad = nuevaCantidad;
     this.productosService.actualizarProducto(producto).subscribe(
