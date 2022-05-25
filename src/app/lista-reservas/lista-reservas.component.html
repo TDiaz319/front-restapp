@@ -6,21 +6,22 @@
            
         </form>
     </div>
-    <div *ngFor="let reserva of reservas;" class="col-md-3 border border-info w-25 p-3 h-75 m-2" id="lista">
-        <p>Cliente:
-            <span>{{reserva.cliente}}</span>
+    <div *ngFor="let reserva of reservas;" class="container col-6 border border-info p-3" id="lista">
+        <div class="row align-items-center">
+        <p  class="font-weight-bold h5"><strong>Cliente: </strong>
+            <span class="h6">{{reserva.cliente}}</span>
         </p>
-        <p>Mesa:
-            <span>{{reserva.mesa}}</span>
+        <p  class="font-weight-bold h5" ><strong>Mesa: </strong>
+            <span class="h6">{{reserva.mesa}}</span>
         </p>
-        <p>Fecha:
-            <span>{{reserva.dia | date: 'dd/MM/yyyy'}} - {{reserva.hora}}</span>
+        <p  class="font-weight-bold h5"><strong>Fecha: </strong>
+            <span class="h6">{{reserva.dia | date: 'dd/MM/yyyy'}} - {{reserva.hora}}</span>
         </p>
-        <p>Teléfono: 
-            <span>{{reserva.telefono}}</span>
+        <p  class="font-weight-bold h5"><strong>Telefono: </strong>
+            <span class="h6">{{reserva.telefono}}</span>
         </p>
-    
-            <button id="editar" [routerLink]="['/editarreserva/', reserva.numeroReserva]" class="btn btn-secondary" name="editar">Editar</button>
+    </div>
+            <button id="editar" [routerLink]="['/editarreserva/', reserva.numeroReserva]" class="btn btn-info" name="editar">Editar</button>
             <button id="eliminar" class="float-end btn btn-danger" (click)="eliminarReserva(reserva)" name="eliminar">Eliminar</button>
       </div>
 </div>

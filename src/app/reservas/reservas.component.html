@@ -1,12 +1,8 @@
 
 <div>
     <button [routerLink]="['/listareservas']"
-    class="btn btn-info  position-absolute end-0 me-5"  >Ir lista reservas >></button>
+    class="btn btn-info  position-absolute end-0 me-5 mb-3"  >Ir lista reservas >></button>
     </div>
-<h2>
-    Reservas
-</h2>
-<p>Añade reservas</p>
 
 
 <div class="container col-6" style="margin-top: 10%; padding: 2%;">
@@ -14,11 +10,11 @@
         <form class="row align-items-center" 
         [formGroup]="checkoutForm" 
         (ngSubmit)="onSubmit(checkoutForm.value)">
-        <fieldset class="field_set">
-            <legend class="fw-bold">Reserva</legend>
+        <fieldset class="border border-info">
+            <legend class="fw-bold h2  p-4 border-bottom text-center">Reserva</legend>
             <div class="col-auto">
             <div class="mb-3">
-                <label class="form-label">Cliente</label>
+                <label class="form-label pt-3">Cliente</label>
                 <input class="form-control" 
                 type="text" 
                 name="cliente"
@@ -88,7 +84,7 @@
                 </select> 
             </div>
             </div>
-            <button type="submit"  class="btn btn-info mt-2" name="agregar">Guardar</button>
+            <button type="submit"  class="btn btn-info mt-2 mb-3 float-end" name="agregar">Guardar</button>
         </fieldset>
     </form>
     </div>
