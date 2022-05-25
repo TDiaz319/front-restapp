@@ -3,6 +3,8 @@ import { Reserva } from '../entidades/reserva';
 import { ReservaService } from '../services/reserva.service';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from "@angular/router";
+import {formatDate} from '@angular/common';
+
 
 @Component({
   selector: 'app-editar-reserva',
@@ -22,7 +24,7 @@ export class EditarReservaComponent implements OnInit {
       cliente: this.reserva.cliente,
       telefono: this.reserva.telefono,
       mesa: this.reserva.mesa,
-      dia: this.reserva.dia,
+      dia: new Date(this.reserva.dia),
       hora: this.reserva.hora
     });   
   }

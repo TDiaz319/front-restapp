@@ -1,5 +1,8 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import localeEs from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeEs, 'es');
 
 import { Router, RouterModule, Routes } from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
@@ -53,7 +56,8 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ProductosService],
+  providers: [ProductosService,
+  {provide: LOCALE_ID, useValue: 'es'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
