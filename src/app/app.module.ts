@@ -41,7 +41,8 @@ const routes: Routes = [
     NuevoProductoComponent,
     NavbarComponent,
     PedidosComponent,
-    ListaReservasComponent
+    ListaReservasComponent,
+    EditarReservaComponent
   ],
   imports: [
     BrowserModule,

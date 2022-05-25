@@ -23,10 +23,8 @@ export class EditarReservaComponent implements OnInit {
       telefono: this.reserva.telefono,
       mesa: this.reserva.mesa,
       dia: this.reserva.dia,
-      hora: this.reserva.hora,
-      id: this.reserva.numeroReserva
-    });
-   
+      hora: this.reserva.hora
+    });   
   }
 
   ngOnInit(): void {
