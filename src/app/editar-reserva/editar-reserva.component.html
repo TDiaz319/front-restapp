@@ -1,10 +1,11 @@
+<button [routerLink]="['/listareservas']" class="btn btn-info mt-2 mb-3 float-start" >Volver</button>
 <div class="container col-6" style="margin-top: 10%; padding: 2%;">
 
     <form class="row align-items-center" 
     [formGroup]="checkoutForm"
     (ngSubmit)="onSubmit(checkoutForm.value)">
-        <fieldset class="field_set">
-            <legend>Editar Reserva</legend>
+        <fieldset class="border border-info">
+            <legend class="fw-bold h2  p-4 border-bottom text-center">Editar Reserva</legend>
             <div class="col-auto">
                 <div class="mb-3">
                     <label for="cliente" class="form-label">Cliente</label>
@@ -39,7 +40,7 @@
             <div class="col-auto">
                 <div class="mb-3">
                     <label class="form-label">Hora</label>
-                    <select  class="form-select" name="hora"
+                    <select  class="form-select" name="hora" 
                     formControlName="hora"
                     [(ngModel)]="reserva.hora">
                         <option value="13:00">13:00 h.</option>
@@ -65,7 +66,8 @@
                         <option value="23:30">23:30 h.</option>
                     </select>
                 </div>
-            </div> 
+            </div>
+            <button type="submit"  class="btn btn-info mt-2 mb-3 float-end" name="agregar">Editar</button> 
         </fieldset> 
     </form>
 </div>
