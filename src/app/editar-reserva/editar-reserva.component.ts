@@ -53,7 +53,7 @@ cargarReserva():void {
 
     this.reservaService.actualizarReserva(this.reserva).subscribe(
       response => {
-        swal.fire("¡Reserva actualizada!", `¡La reserva del cliente ${reservaData.cliente} ha sido creado/actualizada con éxito!`, "success");
+        swal.fire("¡Reserva actualizada!", `¡La reserva del cliente ${reservaData.cliente} ha sido actualizada con éxito!`, "success");
       }
     );
     this.reserva = new Reserva();
