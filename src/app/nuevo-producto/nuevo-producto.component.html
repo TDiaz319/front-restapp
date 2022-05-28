@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            <div class="col-auto">
+            <div class="col-auto" *ngIf="crear">
                 <div class="mb-3">
                     <label for="proveedor">Proveedores:</label>
                     <select id="proveedor" class="form-select" formControlName="proveedor">

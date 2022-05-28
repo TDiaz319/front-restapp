@@ -17,6 +17,7 @@ export class NuevoProductoComponent implements OnInit {
   producto: Producto = new Producto();
   proveedores: Proveedor[] = [];
   checkoutForm: any;  
+  crear: boolean = true;
 
   constructor(private productosService: ProductosService, 
     private formBuilder: FormBuilder, 
@@ -40,6 +41,7 @@ export class NuevoProductoComponent implements OnInit {
       let id = params["id"];
       if (id) {
         this.productosService.buscarProducto(id).subscribe( (producto) => this.producto = producto);
+        this.crear = false;
       }
     });
   }
