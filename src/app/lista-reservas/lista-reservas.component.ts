@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { formatDate, DatePipe } from "@angular/common";
 import { Reserva } from '../entidades/reserva';
 import { ReservaService } from '../services/reserva.service';
 import swal from "sweetalert2";
@@ -28,7 +29,7 @@ export class ListaReservasComponent implements OnInit {
  
   }
   
-  buscarReservas (fecha: string){
+  buscarReservas (fecha: string) {
     this.reservaService.buscarReservaPorFecha(fecha).subscribe(
       response =>{
         this.reservas = response as Reserva[];

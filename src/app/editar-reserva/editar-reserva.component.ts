@@ -3,8 +3,7 @@ import { Reserva } from '../entidades/reserva';
 import { ReservaService } from '../services/reserva.service';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from "@angular/router";
-import {formatDate} from '@angular/common';
-
+import swal from "sweetalert2";
 
 @Component({
   selector: 'app-editar-reserva',
@@ -42,7 +41,7 @@ cargarReserva():void {
   });
  
   }
-  onSubmit(reservaData:Reserva){
+  onSubmit(reservaData:Reserva) {
     console.log(reservaData);
 
     this.reserva.cliente = reservaData.cliente;
@@ -50,10 +49,12 @@ cargarReserva():void {
     this.reserva.mesa = reservaData.mesa;
     this.reserva.dia = reservaData.dia;
     this.reserva.hora = reservaData.hora;
-    this.reserva.numeroReserva = reservaData.numeroReserva;
+    this.reserva.numeroReserva;
 
-    this.reservaService.crearReserva(this.reserva).subscribe(
-      response => {}
+    this.reservaService.actualizarReserva(this.reserva).subscribe(
+      response => {
+        swal.fire("¡Reserva actualizada!", `¡La reserva del cliente ${reservaData.cliente} ha sido creado/actualizada con éxito!`, "success");
+      }
     );
     this.reserva = new Reserva();
     this.checkoutForm.reset();

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { of, Observable, throwError } from 'rxjs';
+import { formatDate, DatePipe } from "@angular/common";
 import { HttpClient, HttpEvent, HttpHeaders, HttpRequest } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { map, catchError, tap } from "rxjs/operators";
@@ -46,6 +47,7 @@ export class ReservaService {
     return this.http.post(`${this.urlEndPoint}reservas/buscarporfecha`, fecha, {headers: this.httpHeaders}).pipe(
       map ((response: any) => {
         (response as Reserva[]).map( reserva => {
+          //response.dia = formatDate(response.dia, "dd-MM-yyyy", "en-US");
           return reserva;
         });
         return response;
@@ -71,12 +73,18 @@ export class ReservaService {
   }
 
   actualizarReserva(reserva: Reserva): Observable<Reserva> {
-    return this.http.put<Reserva>(`${this.urlEndPoint}reserva/updateProducto/${reserva.numeroReserva}`, reserva, {headers: this.httpHeaders}).pipe(
+    return this.http.put<Reserva>(`${this.urlEndPoint}reserva/updateReserva/${reserva.numeroReserva}`, reserva, {headers: this.httpHeaders}).pipe(
       map ((response: any) => {
-        (response as Reserva[]).map( reserva => {
-          return reserva;
-        });
         return response;
+      }),
+      catchError(e => {
+        if (e.status == 400) {
+          return throwError(() => e);
+        }
+
+        console.error(e.error.mensaje);
+        swal.fire(e.error.mensaje, e.error.error, "error");
+        return throwError(() => e);
       })
     );
   }
